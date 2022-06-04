@@ -1,6 +1,7 @@
 #include "minishell.h"
 
 //char *cmd[] = {"/bin/ls", NULL};
+//-lもできるようにする
 //execve(cmd[0], cmd, NULL);
 
 int main(int argc, char **argv, char **envp)
