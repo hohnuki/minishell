@@ -1,5 +1,9 @@
 #include "ease.h"
 
+
+//ls -lを実行できるようにする<=現状split
+//char *cmd[] = {"/bin/ls", "-l", NULL};
+//execve(cmd[0], cmd, NULL);->sampleでチェック
 int main(int argc, char **argv, char **envp)
 {
 	while (1)
