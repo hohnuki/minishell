@@ -5,6 +5,21 @@
 #include <string.h>
 #include <stdlib.h>
 
+size_t ft_strlen(const char *str)
+{
+	size_t len = 0;
+	while (str[len])
+		len++;
+	return len;
+}
+
+int	split_loop_check(const char *s, char c, size_t i)
+{
+	while (s[i] == c && i != ft_strlen(s))
+		i++;
+	return (i);
+}
+
 static char	*str_cutter(const char	*s, size_t start, size_t end)
 {
 	char	*ptr;
