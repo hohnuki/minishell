@@ -9,5 +9,5 @@
 #include <stdlib.h>
 
 char *ft_strjoin(char *s1, char *s2);
-
+char **ft_split(const char *s, char c);
 #endif
