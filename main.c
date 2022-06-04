@@ -16,8 +16,7 @@ int main(int argc, char **argv, char **envp)
 		char *str = readline("nukishell: ");
 		add_history(str);// /bin/ls
 
-
-		char *cmd[] = {str, NULL};
+		char **cmd = ft_split(str, ' ');
 		int pid = fork();
 		if (pid == 0)
 		{
