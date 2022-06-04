@@ -4,7 +4,6 @@
 #include <readline/history.h>
 #include <string.h>
 #include <stdlib.h>
-//char *cmd[] = {"/bin/ls", NULL};<-想定input<-作りたい
 
 char *ft_strjoin(char *s1, char *s2)
 {
@@ -34,8 +33,20 @@ int main(int argc, char **argv, char **envp)
 		add_history(str);
 		str = ft_strjoin("/bin/", str);
 		char *cmd[] = {str, NULL};
-		execve(cmd[0], cmd, NULL);
+
+		int pid = fork();
+		if (pid == 0)
+		{
+			execve(cmd[0], cmd, NULL);
+			exit(127);
+		}
+		else
+		{
+			int sts;
+			wait(&sts);
+			if (WEXITSTATUS(sts) == 127)
+				printf("command not found:%s\n", str);
+		}
 	}
-	/* execve(cmd[0], cmd, NULL); */
 	return 0;
 }
