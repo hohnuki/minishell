@@ -7,5 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "./libft/libft.h"
 
 #endif
