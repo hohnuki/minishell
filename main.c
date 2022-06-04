@@ -4,6 +4,11 @@
 //-lもできるようにする
 //execve(cmd[0], cmd, NULL);
 
+//char *cmd[] = {"/bin/ls", "-l", NULL};
+//execve(cmd[0], cmd, NULL);
+
+//"/bin/ls -l" => {"/bin/ls", "-l", NULL};//今回splitで代用
+
 int main(int argc, char **argv, char **envp)
 {
 	while (1)
