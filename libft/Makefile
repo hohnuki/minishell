@@ -29,14 +29,15 @@ OBJS 		= 	$(SRCS:.c=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar -rcs $(NAME) $(OBJS)
+				@ar -rcs $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+				@$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean:			clean
-				$(RM) $(NAME)
+				@$(RM) $(NAME)
 
-re:				fclean $(NAME)
+re:				fclean
+				$(NAME)
 
 .PHONY:			all clean fclean re
