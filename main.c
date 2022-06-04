@@ -17,6 +17,8 @@ int main(int argc, char **argv, char **envp)
 		add_history(str);// /bin/ls
 
 		char **cmd = ft_split(str, ' ');
+		if (ft_strncmp(cmd[0], "/bin/", 5) != 0)
+			cmd[0] = ft_strjoin("/bin/", cmd[0]);
 		int pid = fork();
 		if (pid == 0)
 		{
