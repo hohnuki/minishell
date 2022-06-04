@@ -6,8 +6,14 @@ void debug_env(char **env)
 		fprintf(stderr, "%s\n", env[i]);
 }
 
+//envのname=bodyとして情報を格納する関数群を作成する
+//その後nameがPATHとなる部分を抽出して合致テストをしていく感じにする方が良さそう。
+
 t_path *create_path(char **env)
 {
 	debug_env(env);
-	return NULL;
+
+	t_path *path = ft_calloc(1, sizeof(t_path));
+	
+	return path;
 }
