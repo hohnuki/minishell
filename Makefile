@@ -25,4 +25,8 @@ re: fclean all
 
 .PHONY: test
 test: all
-	@./minishell
+	@./minishell 2> /dev/null
+
+.PHONY: debug
+debug: all
+	./minishell

@@ -9,4 +9,13 @@
 #include <unistd.h>
 #include "./libft/libft.h"
 
+
+typedef struct s_path {
+	char *name;
+	char *body;
+	struct s_path *next;
+} t_path;
+
+t_path *create_path(char **env);
+
 #endif
