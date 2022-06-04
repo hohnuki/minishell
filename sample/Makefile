@@ -1,7 +1,6 @@
 NAME = ease
 
 srcs = $(wildcard ./*.c)
-
 objs = $(srcs:.c=.o)
 
 CC = cc

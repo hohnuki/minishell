@@ -1,4 +1,4 @@
-#include "../ease.h"
+#include "ease.h"
 
 char *cmd[] = {"/bin/ls", "-l", "-a", NULL};//OK
 
