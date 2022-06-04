@@ -4,32 +4,37 @@
 //-lもできるようにする
 //execve(cmd[0], cmd, NULL);
 
-//char *cmd[] = {"/bin/ls", "-l", NULL};
-//execve(cmd[0], cmd, NULL);
-
-//"/bin/ls -l" => {"/bin/ls", "-l", NULL};//今回splitで代用
-
-int main(int argc, char **argv, char **envp)
+void exec(char *str)
 {
-	while (1)
-	{
-		char *str = readline("nukishell: ");
-		add_history(str);// /bin/ls
-
-		char **cmd = ft_split(str, ' ');
+	char **cmd = ft_split(str, ' ');
 		if (ft_strncmp(cmd[0], "/bin/", 5) != 0)
 			cmd[0] = ft_strjoin("/bin/", cmd[0]);
 		int pid = fork();
 		if (pid == 0)
 		{
 			execve(cmd[0], cmd, NULL);
-			return 127;
+			exit (127);
 		}
 			
 		int status;
 		wait(&status);
 		if (WEXITSTATUS(status) == 127)
 			printf("minishell: %s: command not found.\n", cmd[0]);
+
+}
+
+
+int main(int argc, char **argv, char **envp)
+{
+	while (1)
+	{
+		char *str = readline("nukishell: ");
+		add_history(str);// "ls | cat" -> {"ls", "|", "cat"}(use split)
+		exec(str);
 	}
 	return 0;
 }
+
+//
+//ls(親)->cat(子)
+//ls -[1]->cat [0] dup2(fd[0], fd[0]);close(fd)//dup2(fd[1],fd[1]) -> pipe(fd);
