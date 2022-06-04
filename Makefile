@@ -1,6 +1,8 @@
 NAME = minishell
 
-srcs = $(wildcard ./*.c)
+srcs = $(wildcard ./*.c) \
+	$(wildcard ./debug/*.c) \
+	$(wildcard ./env/*.c)
 
 objs = $(srcs:.c=.o)
 
@@ -16,12 +18,15 @@ $(NAME): $(objs)
 	@cc -o $(NAME) $(objs) $(libft_flag) -lreadline
 
 clean:
-	@rm -rf *.o
-	@rm -rf a.out
+	rm -rf *.o
+	rm -rf a.out
+	rm -rf ./debug/*.o
+	rm -rf ./env/*.o
 
 fclean: clean
 	@$(libft_make) clean
 	@rm -rf $(NAME)
+
 
 re: fclean all
 

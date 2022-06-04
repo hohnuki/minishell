@@ -17,5 +17,6 @@ typedef struct s_path {
 } t_path;
 
 t_path *create_path(char **env);
+void debug_env(char **env);
 
 #endif

@@ -1,10 +1,4 @@
-#include "minishell.h"
-
-void debug_env(char **env)
-{
-	for (int i = 0; env[i]; i++)
-		fprintf(stderr, "%s\n", env[i]);
-}
+#include "../minishell.h"
 
 //envのname=bodyとして情報を格納する関数群を作成する
 //その後nameがPATHとなる部分を抽出して合致テストをしていく感じにする方が良さそう。
@@ -14,6 +8,10 @@ t_path *create_path(char **env)
 	debug_env(env);
 
 	t_path *path = ft_calloc(1, sizeof(t_path));
-	
+	/*
+	 * 上の言語化した実装を書く。-> create_pathはpathの時に欲しくなるので
+	 * 一旦create_envにしてしまって、それを作り終えてから別でcreate_path
+	 * を作成する仕様に変更する予定。
+	 */
 	return path;
 }
