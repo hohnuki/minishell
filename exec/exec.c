@@ -15,7 +15,8 @@ void exec(char *str, t_env *env)
 	
 	/* debug_envlst(env); */
 	char *path;
-	
+
+	env = env->next;//一旦、番兵ノードを回避
 	while (env)
 	{
 		if (ft_strncmp(env->name, "PATH", 5) == 0)
