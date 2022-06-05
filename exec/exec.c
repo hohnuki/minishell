@@ -22,8 +22,11 @@ void exec(char *str, t_env *env)
 	char **paths = ft_split(path, ':');
 	debug_path(paths);
 
-	if (ft_strncmp(cmd[0], "/bin/", 5) != 0)
-		cmd[0] = ft_strjoin("/bin/", cmd[0]);
+	for (int i = 0; paths[i]; i++)
+	{
+		if (access(ft_strjoin(paths[i], ft_strjoin("/" ,cmd[0])), F_OK) == 0)
+			cmd[0] = ft_strjoin(paths[i], ft_strjoin("/" ,cmd[0]));
+	}
 
 	int pid = fork();
 	if (pid == 0)
