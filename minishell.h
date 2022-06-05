@@ -28,6 +28,6 @@ void debug_envlst(t_env *env);
 
 
 /* exec.c */
-void exec(char *str);
+void exec(char *str, t_env *env);
 
 #endif

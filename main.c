@@ -14,12 +14,10 @@ int main(int argc, char **argv, char **envp)
 		
 		//envの情報を格納
 		t_env *env = create_env(envp);
-		debug_envlst(env);
-
-
+		/* debug_envlst(env); */
+		
 		//exec
-		exec(str);
-		/* exec(str, env); */
+		exec(str, env);
 	}
 	return 0;
 }
