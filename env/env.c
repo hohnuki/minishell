@@ -16,15 +16,6 @@ char *ft_strndup(const char *str, size_t n)
 	return ret;
 }
 
-void debug_envlst(t_env *env)
-{
-	while (env)
-	{
-		fprintf(stderr, "name:%s\n", env->name);
-		fprintf(stderr, "body:%s\n", env->body);
-		env = env->next;
-	}
-}
 
 t_env *create_env(char **envptr)
 {
