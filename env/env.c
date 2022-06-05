@@ -19,7 +19,7 @@ char *ft_strndup(const char *str, size_t n)
 
 t_env *create_env(char **envptr)
 {
-	/* debug_env(envptr); */
+	/* debug_env(envptr);  */
 
 	t_env *env = ft_calloc(1, sizeof(t_env));
 
@@ -30,8 +30,6 @@ t_env *create_env(char **envptr)
 		char *body = ft_strdup(equal + 1);
 		env_lstadd_back(&env, env_lstnew(name, body));
 	}
-
-	debug_envlst(env);
 	/*
 	 * 上の言語化した実装を書く。-> create_pathはpathの時に欲しくなるので
 	 * 一旦create_envにしてしまって、それを作り終えてから別でcreate_path

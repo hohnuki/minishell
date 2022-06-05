@@ -2,7 +2,8 @@ NAME = minishell
 
 srcs = $(wildcard ./*.c) \
 	$(wildcard ./debug/*.c) \
-	$(wildcard ./env/*.c)
+	$(wildcard ./env/*.c) \
+	$(wildcard ./exec/*.c)
 
 objs = $(srcs:.c=.o)
 
