@@ -19,7 +19,7 @@ char *ft_strndup(const char *str, size_t n)
 
 t_env *create_env(char **envptr)
 {
-	debug_env(envptr);
+	/* debug_env(envptr); */
 
 	t_env *env = ft_calloc(1, sizeof(t_env));
 
