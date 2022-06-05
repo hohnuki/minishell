@@ -18,5 +18,10 @@ typedef struct s_env {
 
 t_env *create_env(char **env);
 void debug_env(char **env);
+t_env	*env_lstnew(char *content);
+void	env_lstadd_front(t_env **lst, t_env *new);
+t_env	*env_lstlast(t_env *lst);
+void	env_lstadd_back(t_env **lst, t_env *new);
+size_t	env_lstsize(t_env *lst);
 
 #endif
