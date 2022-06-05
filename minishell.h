@@ -10,13 +10,13 @@
 #include "./libft/libft.h"
 
 
-typedef struct s_path {
+typedef struct s_env {
 	char *name;
 	char *body;
-	struct s_path *next;
-} t_path;
+	struct s_env *next;
+} t_env;
 
-t_path *create_path(char **env);
+t_env *create_env(char **env);
 void debug_env(char **env);
 
 #endif

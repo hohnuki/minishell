@@ -22,16 +22,17 @@ void exec(char *str)
 		printf("minishell: %s: command not found.\n", cmd[0]);
 }
 
-
 int main(int argc, char **argv, char **envp)
 {
 	(void)argc;
 	(void)argv;
 	while (1)
 	{
+		//envの情報を格納
+		t_env *env = create_env(envp);
+
 		char *str = readline("nukishell: ");
 		add_history(str);// "ls | cat" -> {"ls", "|", "cat"}(use split)
-		t_path *path = create_path(envp);
 		exec(str);
 	}
 	return 0;
