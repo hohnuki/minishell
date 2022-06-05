@@ -29,7 +29,11 @@ mkdir diff
 
 # test case
 echo ---------------------------------------
+
 test 'ls'
 test '/bin/ls'
+test '/bin/ls -a'
+
 test 'echo hello'
+test 'echo hello world'
 echo ---------------------------------------
