@@ -4,11 +4,6 @@
 //-lもできるようにする
 //execve(cmd[0], cmd, NULL);
 
-void debug_onepath(char *path)
-{
-	fprintf(stderr, "path body:%s\n", path);
-}
-
 void exec(char *str, t_env *env)
 {
 	setbuf(stderr, NULL);
@@ -23,10 +18,13 @@ void exec(char *str, t_env *env)
 			path = env->body;
 		env = env->next;
 	}
-	debug_onepath(path);
 	char **cmd = ft_split(str, ' ');
+	char **paths = ft_split(path, ':');
+	debug_path(paths);
+
 	if (ft_strncmp(cmd[0], "/bin/", 5) != 0)
 		cmd[0] = ft_strjoin("/bin/", cmd[0]);
+
 	int pid = fork();
 	if (pid == 0)
 	{

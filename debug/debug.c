@@ -19,3 +19,11 @@ void debug_envlst(t_env *env)
 	}
 	fprintf(stderr, "\n===[debug_envlst]===\n");
 }
+
+void debug_path(char **paths)
+{
+	fprintf(stderr, "\n=====[debug_path]========\n");
+	for (int i = 0; paths[i]; i++)
+		fprintf(stderr, "%s\n", paths[i]);
+	fprintf(stderr, "\n=====[debug_path]========\n");
+}
