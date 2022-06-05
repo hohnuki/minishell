@@ -1,13 +1,14 @@
 #include "../minishell.h"
 
-t_env	*env_lstnew(char *content)
+t_env	*env_lstnew(char *name, char *body)
 {
 	t_env	*ptr;
 
 	ptr = malloc(sizeof(t_env));
 	if (!ptr)
 		return (NULL);
-	ptr->name = content;//still
+	ptr->name = name;
+	ptr->body = body;
 	ptr->next = NULL;
 	return (ptr);
 }

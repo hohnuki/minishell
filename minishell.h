@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include "./libft/libft.h"
 
-
 typedef struct s_env {
 	char *name;
 	char *body;
@@ -18,7 +17,7 @@ typedef struct s_env {
 
 t_env *create_env(char **env);
 void debug_env(char **env);
-t_env	*env_lstnew(char *content);
+t_env	*env_lstnew(char *name, char *body);
 void	env_lstadd_front(t_env **lst, t_env *new);
 t_env	*env_lstlast(t_env *lst);
 void	env_lstadd_back(t_env **lst, t_env *new);
