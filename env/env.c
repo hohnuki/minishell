@@ -20,7 +20,7 @@ void debug_envlst(t_env *env)
 {
 	while (env)
 	{
-		fprintf(stderr, "name:[%p]\n", env->name);
+		fprintf(stderr, "name:%s\n", env->name);
 		fprintf(stderr, "body:%s\n", env->body);
 		env = env->next;
 	}
@@ -35,8 +35,9 @@ t_env *create_env(char **envptr)
 	for (size_t i = 0; envptr[i]; i++)
 	{
 		char *equal = ft_strchr(envptr[i], '=');
+		char *name = ft_strndup(envptr[i], strchr_ret_sizet(envptr[i], '='));
 		char *body = ft_strdup(equal + 1);
-		env_lstadd_back(&env, env_lstnew(NULL, body));
+		env_lstadd_back(&env, env_lstnew(name, body));
 	}
 
 	debug_envlst(env);

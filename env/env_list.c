@@ -52,3 +52,19 @@ size_t	env_lstsize(t_env *lst)
 	}
 	return (i);
 }
+
+size_t	strchr_ret_sizet(const char *s, int c)
+{
+	size_t	i;
+	size_t	len;
+
+	len = ft_strlen(s);
+	i = 0;
+	while (i <= len)
+	{
+		if (s[i] == (char)c)
+			return (i);
+		i++;
+	}
+	return (0);
+}

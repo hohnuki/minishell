@@ -22,5 +22,6 @@ void	env_lstadd_front(t_env **lst, t_env *new);
 t_env	*env_lstlast(t_env *lst);
 void	env_lstadd_back(t_env **lst, t_env *new);
 size_t	env_lstsize(t_env *lst);
+size_t	strchr_ret_sizet(const char *s, int c);
 
 #endif
