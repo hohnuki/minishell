@@ -15,7 +15,9 @@
 void	*ft_calloc(size_t n, size_t size)
 {
 	char	*ptr;
+	size_t	i;
 
+	i = 0;
 	if (!n || !size)
 	{
 		n = 1;
