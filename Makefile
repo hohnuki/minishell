@@ -35,6 +35,9 @@ test: all
 	@./minishell 2> /dev/null
 
 debug: all
-	./minishell
+	@./minishell
 
-.PHONY: all clean fclean re test debug
+tdd: all
+	@cd tests && bash ./basic_tester.sh 2>/dev/null
+
+.PHONY: all clean fclean re test debug tdd
