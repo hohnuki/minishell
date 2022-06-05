@@ -1,0 +1,17 @@
+1,16d0
+< .
+< ├── actual
+< │   ├── output
+< │   └── tmp
+< ├── basic.test
+< ├── basic_tester.sh
+< ├── case.sh
+< ├── diff
+< │   └── diff
+< ├── expected
+< │   └── output
+< ├── test
+< │   └── basic.txt
+< └── test.sh
+< 
+< 4 directories, 9 files

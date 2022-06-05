@@ -1,5 +1,9 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+GREEN='\033[32m'
+NC='\033[0m'
+
 function test() {
   input=$1
   # expected
@@ -12,9 +16,9 @@ function test() {
   diff ./expected/output ./actual/output &> /dev/null
   result=$?
   if [ $result -eq 0 ]; then
-    echo "OK: $input"
+    echo -e "${GREEN}OK${NC}: $input"
   else
-    echo "KO: $input"
+    echo -e "${RED}KO${NC}: $input"
     diff ./expected/output ./actual/output > ./diff/diff
   fi
 }
@@ -34,6 +38,14 @@ test 'ls'
 test '/bin/ls'
 test '/bin/ls -a'
 
+test 'lsc' #this is not existing command
+test ' ' #space
+
 test 'echo hello'
 test 'echo hello world'
+
+test 'cat main.c'
+
+test 'ls | cat' #pipe
+test 'tree' #this is not /usr/bin/command
 echo ---------------------------------------
