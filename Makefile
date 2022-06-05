@@ -23,6 +23,7 @@ clean:
 	rm -rf a.out
 	rm -rf ./debug/*.o
 	rm -rf ./env/*.o
+	rm -rf ./exec/*.o
 
 fclean: clean
 	@$(libft_make) clean
