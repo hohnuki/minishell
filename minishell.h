@@ -15,6 +15,20 @@ typedef struct s_env {
 	struct s_env *next;
 } t_env;
 
+typedef enum e_kind {
+	WORD,//e.g.)"ls", "cat", "-l"...
+	OPE,//e.g.)"|", "<<", "<", ">", ">>"
+	END,//end of file(EOF is conflict)
+} t_kind;
+
+typedef struct s_token {
+	t_kind kind;//kind of token
+	size_t len;//len of token
+	char *str;//分析(lex)対象文字
+	
+	struct s_token *next;
+} t_token;
+
 t_env *create_env(char **env);
 void debug_env(char **env);
 t_env	*env_lstnew(char *name, char *body);
@@ -24,10 +38,13 @@ void	env_lstadd_back(t_env **lst, t_env *new);
 size_t	env_lstsize(t_env *lst);
 size_t	strchr_ret_sizet(const char *s, int c);
 
+/* lexer.c */
+t_token *lexer(char *str);
+
 /* debug.c */
 void debug_envlst(t_env *env);
 void debug_path(char **paths);
-
+void debug_lexer(t_token *token);
 
 /* exec.c */
 void exec_start(char *str, t_env *env, char **envp);
