@@ -47,5 +47,9 @@ test 'echo hello world'
 test 'cat main.c'
 
 test 'ls | cat' #pipe
-test 'tree' #this is not /usr/bin/command
+#test 'tree' #this is not /usr/bin/command (▲)
+#->minishellとbashで挙動が異なって見えるのは単に
+#bashにないから基本的にbuiltinはOK
+#test 'cal' #これもJune<->6の違いなので無視
+
 echo ---------------------------------------

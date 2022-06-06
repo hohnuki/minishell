@@ -1,28 +1,9 @@
-2,14c2,14
-< ├── actual
-< │   ├── output
-< │   └── tmp
-< ├── basic.test
-< ├── basic_tester.sh
-< ├── case.sh
-< ├── diff
-< │   └── diff
-< ├── expected
-< │   └── output
-< ├── test
-< │   └── basic.txt
-< └── test.sh
----
-> |-- actual
-> |   |-- output
-> |   `-- tmp
-> |-- basic.test
-> |-- basic_tester.sh
-> |-- case.sh
-> |-- diff
-> |   `-- diff
-> |-- expected
-> |   `-- output
-> |-- test
-> |   `-- basic.txt
-> `-- test.sh
+1,8d0
+< actual
+< basic.test
+< basic_tester.sh
+< case.sh
+< diff
+< expected
+< test
+< test.sh
