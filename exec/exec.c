@@ -24,9 +24,10 @@ void exec(char *str, t_env *env)
 
 	for (int i = 0; paths[i]; i++)
 	{
-		if (access(ft_strjoin(paths[i], ft_strjoin("/" ,cmd[0])), F_OK) == 0)
+		path = ft_strjoin(paths[i], ft_strjoin("/", cmd[0]));
+		if (access(path, F_OK) == 0)
 		{
-			cmd[0] = ft_strjoin(paths[i], ft_strjoin("/" ,cmd[0]));
+			cmd[0] = path;
 			break;
 		}
 	}
