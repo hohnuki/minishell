@@ -28,16 +28,16 @@ void debug_path(char **paths)
 	fprintf(stderr, "\n=====[debug_path]========\n");
 }
 
-
 void debug_lexer(t_token *token)
 {
-	fprintf(stderr, "\n=====[debug_lexer]========\n");
-	
-	const char *kind[] = {"WORD", "OPE", "END"};
-	while (token)
-	{
-		fprintf(stderr, "str: %s\n", token->str);
-		token = token->next;
-	}
-	fprintf(stderr, "\n=====[debug_lexer]========\n");
+    fprintf(stderr, "\n=====[debug_lexer]========\n");
+
+    const char *kind[] = {"WORD", "OPE", "END"};
+    while (token)
+    {
+        fprintf(stderr, "str: %s\n", token->str);
+        fprintf(stderr, "kind: %s\n", kind[token->kind]);
+        token = token->next;
+    }
+    fprintf(stderr, "\n=====[debug_lexer]========\n");
 }
