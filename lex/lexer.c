@@ -1,19 +1,19 @@
 #include "../minishell.h"
 
-size_t get_ope_len(char *str)
+size_t get_ope_len(const char *str)
 {
 	const char *key[] = {"|", "<<", "<", ">", ">>", NULL};
 	size_t i = 0;
-	while (key[i])
+	while (key[i] != NULL)
 	{
-		if (ft_strncmp(str, key[i], ft_strlen(key[i])))
+		if (ft_strncmp(str, key[i], ft_strlen(key[i])) == 0)
 			return ft_strlen(key[i]);
 		i++;
 	}
 	return 0;
 }
 
-size_t get_word_len(char *str) {
+size_t get_word_len(const char *str) {
     size_t len = 0;
     while (str[len])
     {
