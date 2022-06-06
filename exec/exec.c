@@ -42,13 +42,10 @@ void go_pipe(char **cmds, t_env *env, char **envp, size_t begin)
 		close(fd[1]);
 		exec(cmds[begin], env, envp);
 	}
-	else
-	{
-		dup2(fd[0], 0);
-		close(fd[0]);
-		close(fd[1]);
-		go_pipe(cmds, env, envp, begin + 1);
-	}
+	dup2(fd[0], 0);
+	close(fd[0]);
+	close(fd[1]);
+	go_pipe(cmds, env, envp, begin + 1);
 }
 
 void exec_start(char *str, t_env *env, char **envp)
@@ -60,9 +57,12 @@ void exec_start(char *str, t_env *env, char **envp)
 	
 	int pid = fork();
 	if (pid == 0)
+	{
 		go_pipe(cmds, env, envp, begin);
+		exit(127);
+	}
 	int status;
  	wait(&status);
 	if (WEXITSTATUS(status) == 127)
-		printf("minishell: %s: command not found.\n", str);
+		printf("minishell: %s: command not found.\n", cmds[0]);
 }

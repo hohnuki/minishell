@@ -36,7 +36,7 @@ echo ---------------------------------------
 
 test 'ls'
 test '/bin/ls'
-test '/bin/ls -a'
+test '/bin/ls -a' #ls -lも表示が違うけどできてます
 
 test 'lsc' #this is not existing command
 test ' ' #space
@@ -51,5 +51,8 @@ test 'ls | cat' #pipe
 #->minishellとbashで挙動が異なって見えるのは単に
 #bashにないから基本的にbuiltinはOK
 #test 'cal' #これもJune<->6の違いなので無視
+
+test 'ls | cat | ls'
+test 'ls | cat | ls | cat'
 
 echo ---------------------------------------
