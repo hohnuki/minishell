@@ -30,6 +30,6 @@ void debug_path(char **paths);
 
 
 /* exec.c */
-void exec(char *str, t_env *env);
+void exec(char *str, t_env *env, char **envp);
 
 #endif
