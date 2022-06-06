@@ -12,7 +12,7 @@ void exec(char *str, t_env *env, char **envp)
 	}
 	char **cmd = ft_split(str, ' ');
 	char **paths = ft_split(path, ':');
-	debug_path(paths);
+	/* debug_path(paths); */
 	
 	for (int i = 0; paths[i]; i++)
 	{

@@ -35,9 +35,9 @@ void debug_lexer(t_token *token)
     const char *kind[] = {"WORD", "OPE", "END"};
     while (token)
     {
-        fprintf(stderr, "str: %s\n", token->str);
-        fprintf(stderr, "kind: %s\n", kind[token->kind]);
-        fprintf(stderr, "len: %zu\n", token->len);
+        fprintf(stderr, "[%s]", token->str);
+        fprintf(stderr, " kind: %s", kind[token->kind]);
+        fprintf(stderr, " len: %zu]\n", token->len);
         token = token->next;
     }
     fprintf(stderr, "\n=====[debug_lexer]========\n");

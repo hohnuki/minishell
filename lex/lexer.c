@@ -13,12 +13,15 @@ size_t get_ope_len(char *str)
 	return 0;
 }
 
-size_t get_word_len(char *str)//space or EOFまでの長さをとる
-{
-	size_t len = 0;
-	while (str[len] != ' ')
-		len++;
-	return len;
+size_t get_word_len(char *str) {
+    size_t len = 0;
+    while (str[len])
+    {
+	    if (str[len] == ' ')
+		    break ;
+	    len++;
+    }
+    return len;
 }
 
 void new_token(t_token *token, t_kind kind, char *str, size_t len)
@@ -43,8 +46,10 @@ t_token *lexer(char *str)
 	{
 		while (*str == ' ')
 			str++;
+		/* fprintf(stderr, "%s\n", str);//なぜか1しかインクリメントされない */
 		size_t ope_len = get_ope_len(str);
-		if (ope_len != 0)//judge ope
+		/* fprintf(stderr, "%zu\n", ope_len); */
+		if (ope_len > 0)//judge ope
 		{
 			new_token(&token, OPE, str, ope_len);
 			str = str + ope_len;//strを進める
@@ -52,7 +57,7 @@ t_token *lexer(char *str)
 		}
 
 		size_t word_len = get_word_len(str);
-		if (word_len != 0)//judge word
+		if (word_len > 0)//judge word
 		{
 			new_token(&token, WORD, str, word_len);
 			str = str + word_len;//同上
