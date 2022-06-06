@@ -17,7 +17,7 @@ int main(int argc, char **argv, char **envp)
 		/* debug_envlst(env); */
 		
 		//exec
-		exec(str, env, envp);
+		exec_start(str, env, envp);
 	}
 	return 0;
 }
