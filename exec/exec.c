@@ -4,13 +4,8 @@
 //-lもできるようにする
 //execve(cmd[0], cmd, NULL);
 
-void exec(char *str, t_env *env, char **envp)
+void go_pipe(char *str, t_env *env, char **envp)
 {
-	/* debug_envlst(env); */
-	
-	int pid = fork();
-	if (pid == 0)
-	{
 		char *path;
 		env = env->next;//一旦、番兵ノードを回避
 		while (env)
@@ -34,7 +29,16 @@ void exec(char *str, t_env *env, char **envp)
 		}				
 		execve(cmd[0], cmd, envp);
 		exit (127);
-	}
+	
+}
+
+void exec(char *str, t_env *env, char **envp)
+{
+	/* debug_envlst(env); */
+	
+	int pid = fork();
+	if (pid == 0)
+		go_pipe(str, env, envp);
 	int status;
 	wait(&status);
 	if (WEXITSTATUS(status) == 127)
