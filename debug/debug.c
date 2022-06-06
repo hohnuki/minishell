@@ -37,6 +37,7 @@ void debug_lexer(t_token *token)
     {
         fprintf(stderr, "str: %s\n", token->str);
         fprintf(stderr, "kind: %s\n", kind[token->kind]);
+        fprintf(stderr, "len: %zu\n", token->len);
         token = token->next;
     }
     fprintf(stderr, "\n=====[debug_lexer]========\n");
