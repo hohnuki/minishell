@@ -36,7 +36,7 @@ typedef struct s_token {
 /*purpose: get info of parser*/
 typedef struct s_node {
 	
-	struct s_node *cmds;
+	struct s_node *cmds;//cmds/red_in/red_out...を全て同じデータ構造でもつ
 	struct s_node *red_in;
 	struct s_node *red_out;
 	
