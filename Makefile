@@ -10,7 +10,7 @@ srcs = $(wildcard ./*.c) \
 objs = $(srcs:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+# CFLAGS = -Wall -Werror -Wextra #しばらく不要
 
 libft_path = ./libft/
 libft_make = $(MAKE) -C $(libft_path)
@@ -27,6 +27,8 @@ clean:
 	rm -rf ./debug/*.o
 	rm -rf ./env/*.o
 	rm -rf ./exec/*.o
+	rm -rf ./lexer/*.o
+	rm -rf ./parser/*.o
 
 fclean: clean
 	@$(libft_make) clean

@@ -19,8 +19,8 @@ int main(int argc, char **argv, char **envp)
 		debug_lexer(token);
 
 		//parser
-		
-
+		t_node *node = parser(token);
+		/* debug_node(node); */
 		
 		//expansion
 		
@@ -30,4 +30,3 @@ int main(int argc, char **argv, char **envp)
 	}
 	return 0;
 }
-

@@ -9,18 +9,22 @@
 #include <unistd.h>
 #include "./libft/libft.h"
 
+
+/*purpose:change envp to (name=body)*/
 typedef struct s_env {
 	char *name;
 	char *body;
 	struct s_env *next;
 } t_env;
 
+/*purpose:get kind of token*/
 typedef enum e_kind {
 	WORD,//e.g.)"ls", "cat", "-l"...
 	OPE,//e.g.)"|", "<<", "<", ">", ">>"
 	END,//end of file(EOF is conflict)
 } t_kind;
 
+/*purpose:get traits of token*/
 typedef struct s_token {
 	t_kind kind;//kind of token
 	size_t len;//len of token
@@ -28,6 +32,20 @@ typedef struct s_token {
 	
 	struct s_token *next;
 } t_token;
+
+/*purpose: get info of parser*/
+typedef struct s_node {
+	
+	struct s_node *cmds;
+	struct s_node *red_in;
+	struct s_node *red_out;
+	
+	char *cmd;
+	char *str;
+	int is_builtin;
+	char *pathname;
+	struct s_node *next;
+} t_node;
 
 t_env *create_env(char **env);
 void debug_env(char **env);
@@ -41,10 +59,14 @@ size_t	strchr_ret_sizet(const char *s, int c);
 /* lexer.c */
 t_token *lexer(char *str);
 
+/* parser.c */
+t_node *parser(t_token *token);
+
 /* debug.c */
 void debug_envlst(t_env *env);
 void debug_path(char **paths);
 void debug_lexer(t_token *token);
+void debug_parser(t_node *node);
 
 /* exec.c */
 void exec_start(char *str, t_env *env, char **envp);
