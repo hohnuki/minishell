@@ -4,11 +4,13 @@ srcs = $(wildcard ./*.c) \
 	$(wildcard ./debug/*.c) \
 	$(wildcard ./env/*.c) \
 	$(wildcard ./exec/*.c) \
-	$(wildcard ./lex/*.c)
+	$(wildcard ./lexer/*.c) \
+	$(wildcard ./parser/*.c)
 
 objs = $(srcs:.c=.o)
 
 CC = cc
+CFLAGS = -Wall -Werror -Wextra
 
 libft_path = ./libft/
 libft_make = $(MAKE) -C $(libft_path)
