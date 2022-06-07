@@ -20,7 +20,7 @@ int main(int argc, char **argv, char **envp)
 
 		//parser
 		t_node *node = parser(token);
-		/* debug_node(node); */
+		debug_parser(node);
 		
 		//expansion
 		

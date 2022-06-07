@@ -41,3 +41,39 @@ void debug_lexer(t_token *token)
 	}
 	fprintf(stderr, "\n=====[debug_lexer]========\n");
 }
+
+void debug_parser(t_node *node)
+{
+	while (node)
+	{
+		fprintf(stderr, "cmds: ");//debug node->cmds
+		while (node->cmds)
+		{
+			fprintf(stderr, "%s", node->cmds->str);
+			node->cmds = node->cmds->next;
+		}
+		fprintf(stderr, "\n");
+		
+
+		fprintf(stderr, "red_in: ");//debug node->red_in
+		while (node->red_in)
+		{
+			fprintf(stderr, "%s", node->red_in->str);
+			node->red_in = node->red_in->next;
+		}
+		fprintf(stderr, "\n");
+		
+
+		fprintf(stderr, "red_out: ");//debug node->red_out
+		while (node->red_out)
+		{
+			fprintf(stderr, "%s", node->red_out->str);
+			node->red_out = node->red_out->next;
+		}
+		fprintf(stderr, "\n");
+
+		if (node->next)
+			fprintf(stderr, "\nPIPE\n");
+		node = node->next;
+	}
+}
