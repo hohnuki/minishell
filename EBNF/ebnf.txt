@@ -1,0 +1,15 @@
+<command_line> ::= "\n" | <sequential_commands> <delimiter> "\n" | <sequential_commands> "\n"
+
+<delimiter> ::= ";"
+
+<sequential_commands> ::= <piped_commands> <delimiter> <sequential_commands> | <piped_commands>
+
+<piped_commands> ::= <command> "|" <piped_commands> | <command>
+
+<command> ::= <arguments>
+
+<arguments> ::= <redirection> | <redirection> <arguments> | <string> | <string> <arguments>
+
+<string> ::= <expandable> <no_space> <string> | <expandable> | <not_expandable> <no_space> <string> | <not_expandable> | <expandable_quoted> <no_space> <string> | <expandable_quoted>
+
+<redirection> ::= "<" <string> | ">" <string> | ">>" <string> | "<<" <string>
