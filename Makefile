@@ -22,13 +22,7 @@ $(NAME): $(objs)
 	@cc -o $(NAME) $(objs) ./libft/libft.a -lreadline
 
 clean:
-	rm -rf *.o
-	rm -rf a.out
-	rm -rf ./debug/*.o
-	rm -rf ./env/*.o
-	rm -rf ./exec/*.o
-	rm -rf ./lexer/*.o
-	rm -rf ./parser/*.o
+	rm -rf $(objs)
 
 fclean: clean
 	@$(libft_make) clean
