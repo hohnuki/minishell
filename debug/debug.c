@@ -2,36 +2,35 @@
 
 void debug_env(char **env)
 {
-	fprintf(stderr, "\n=====[debug_env]========\n");
+	fprintf(stderr, RED"\n=====[debug_env]========\n"STOP);
 	for (size_t i = 0; env[i]; i++)
 		fprintf(stderr, "%s\n", env[i]);
-	fprintf(stderr, "\n=====[debug_env]=========\n");
+	fprintf(stderr, RED"\n=====[debug_env]=========\n"STOP);
 }
 
 void debug_envlst(t_env *env)
 {
-	fprintf(stderr, "\n===[debug_envlst]===\n");
+	fprintf(stderr, GREEN"\n===[debug_envlst]===\n"STOP);
 	while (env)
 	{
 		fprintf(stderr, "name:%s\n", env->name);
 		fprintf(stderr, "body:%s\n", env->body);
 		env = env->next;
 	}
-	fprintf(stderr, "\n===[debug_envlst]===\n");
+	fprintf(stderr, GREEN"\n===[debug_envlst]===\n"STOP);
 }
 
 void debug_path(char **paths)
 {
-	fprintf(stderr, "\n=====[debug_path]========\n");
+	fprintf(stderr, CYAN"\n=====[debug_path]========\n"STOP);
 	for (int i = 0; paths[i]; i++)
 		fprintf(stderr, "%s\n", paths[i]);
-	fprintf(stderr, "\n=====[debug_path]========\n");
+	fprintf(stderr, CYAN"\n=====[debug_path]========\n"STOP);
 }
 
 void debug_lexer(t_token *token)
 {
-	fprintf(stderr, "\n=====[debug_lexer]========\n");
-
+	fprintf(stderr, BLUE"\n=====[debug_lexer]========\n"STOP);
 	const char *kind[] = {"WORD", "OPE", "END"};
 	while (token)
 	{
@@ -39,11 +38,12 @@ void debug_lexer(t_token *token)
 		fprintf(stderr, " kind: %s\n", kind[token->kind]);
 		token = token->next;
 	}
-	fprintf(stderr, "\n=====[debug_lexer]========\n");
+	fprintf(stderr, BLUE"\n=====[debug_lexer]========\n"STOP);
 }
 
 void debug_parser(t_node *node)
 {
+	fprintf(stderr, MAGENTA"\n=======[debug_parser]=======\n"STOP);
 	while (node)
 	{
 		fprintf(stderr, "cmds: ");//debug node->cmds
@@ -71,9 +71,9 @@ void debug_parser(t_node *node)
 			node->red_out = node->red_out->next;
 		}
 		fprintf(stderr, "\n");
-
 		if (node->next)
-			fprintf(stderr, "\n---PIPE---\n");
+			fprintf(stderr, "---PIPE---\n");
 		node = node->next;
 	}
+	fprintf(stderr, MAGENTA"\n=======[debug_parser]=======\n"STOP);
 }

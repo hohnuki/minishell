@@ -11,7 +11,7 @@ int main(int argc, char **argv, char **envp)
 	while (1)
 	{
 		//input
-		char *str = readline("nukishell: ");
+		char *str = readline(YELLOW"nukishell: "STOP);
 		add_history(str);// "ls | cat" -> {"ls", "|", "cat"}(use split)
 
 		//lexer
@@ -23,9 +23,9 @@ int main(int argc, char **argv, char **envp)
 		debug_parser(node);
 		
 		//expansion
-		
+
 		//exec
-		fprintf(stderr, "\n!!!!!exec!!!!!!\n");
+		fprintf(stderr, GREEN"\n!!!!!exec!!!!!!\n"STOP);
 		exec_start(str, env, envp);
 	}
 	return 0;
